@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARQUIVO 314</title>
+<style>
+/* ARQUIVO 314 - tudo num arquivo so. feito a mao. */
+
+body {
+  background-color: #0c0c0c;
+  color: #c4c4c4;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 25px 10px;
+}
+
+#pagina {
+  width: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#topo {
+  border: 1px solid #2a2a2a;
+  background-color: #141414;
+  padding: 18px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#topo h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 26px;
+  letter-spacing: 5px;
+  margin: 0;
+  color: #d8d8d8;
+}
+
+#topo .subtitulo {
+  font-size: 12px;
+  color: #7a7a7a;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+#menu {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+#menu a { margin: 0 6px; }
+
+a {
+  color: #6f99b8;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover { color: #a7cbe6; text-decoration: underline; }
+
+.aviso {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 18px;
+  border: 1px dashed #2a2a2a;
+  background-color: #111;
+  padding: 10px 12px;
+}
+
+.intro {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1px dotted #2a2a2a;
+  padding-bottom: 14px;
+}
+
+ul.posts { list-style: none; padding: 0; margin: 0; }
+
+ul.posts li {
+  padding: 9px 4px;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+ul.posts li .num {
+  color: #5c5c5c;
+  font-family: "Courier New", Courier, monospace;
+  margin-right: 8px;
+}
+
+ul.posts li .data {
+  float: right;
+  color: #555;
+  font-size: 11px;
+}
+
+h2.titulo-post {
+  font-size: 18px;
+  color: #d2d2d2;
+  margin: 0 0 4px 0;
+  font-weight: normal;
+}
+
+.data-post {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 18px;
+  border-bottom: 1px dotted #2a2a2a;
+  padding-bottom: 12px;
+}
+
+.texto p { margin: 0 0 14px 0; }
+
+.video-box {
+  margin: 20px 0;
+  padding: 8px;
+  background-color: #050505;
+  border: 1px solid #222;
+}
+
+.video-box video {
+  display: block;
+  width: 100%;
+  background-color: #000;
+}
+
+.video-legenda {
+  font-size: 11px;
+  color: #555;
+  margin-top: 6px;
+  font-family: "Courier New", Courier, monospace;
+  word-break: break-all;
+}
+
+.bloco-comentarios {
+  margin-top: 30px;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 16px;
+}
+
+.bloco-comentarios h3 {
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 14px 0;
+  text-transform: lowercase;
+}
+
+.comentario {
+  border-bottom: 1px solid #181818;
+  padding: 8px 4px;
+}
+
+.comentario .nome { color: #8fae8f; font-weight: bold; }
+.comentario .quando { float: right; font-size: 10px; color: #444; }
+.comentario .corpo { color: #b5b5b5; margin-top: 2px; }
+
+.form-comentario {
+  margin-top: 22px;
+  background-color: #111;
+  border: 1px solid #222;
+  padding: 14px;
+}
+
+.form-comentario label {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  margin-bottom: 3px;
+}
+
+.form-comentario input[type="text"],
+.form-comentario textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #050505;
+  border: 1px solid #333;
+  color: #ccc;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.form-comentario textarea { height: 70px; resize: vertical; }
+
+.form-comentario button {
+  background-color: #222;
+  border: 1px solid #444;
+  color: #ccc;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  padding: 5px 16px;
+  cursor: pointer;
+}
+.form-comentario button:hover { background-color: #2c2c2c; }
+
+.aviso-local { font-size: 10px; color: #444; margin-top: 8px; }
+
+.sobre p { margin: 0 0 14px 0; }
+
+#rodape {
+  margin-top: 40px;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 14px;
+  text-align: center;
+  font-size: 11px;
+  color: #555;
+}
+#rodape .contador {
+  font-family: "Courier New", Courier, monospace;
+  color: #777;
+}
+
+.voltar { font-size: 12px; margin-bottom: 18px; }
+.clear { clear: both; }
+</style>
+</head>
+<body>
+
+<div id="pagina">
+
+  <div id="topo">
+    <h1>ARQUIVO 314</h1>
+    <div class="subtitulo">Anotações sobre um jogo que encontrei em um notebook antigo.</div>
+  </div>
+
+  <div id="menu">
+    <a onclick="irPara('')">início</a> |
+    <a onclick="irPara('sobre')">sobre</a>
+  </div>
+
+  <!-- todo o conteudo e montado aqui dentro pelo script -->
+  <div id="conteudo"></div>
+
+  <div id="rodape">
+    Visitantes: <span class="contador" id="contador">1483</span><br>
+    Última atualização: 18/03/2026
+  </div>
+
+</div>
+
+<script>
+/* ===== ARQUIVO 314 ===== */
+/* sem servidor, sem banco de dados, sem framework. */
+
+var POSTS = [
+  {
+    id: 1,
+    titulo: "alguem conhece esse jogo?",
+    data: "12/03/2026",
+    video: "videos/alguem conhece esse jogo 1.mp4",
+    texto: [
+      "Encontrei esse vídeo numa pasta antiga dentro do notebook. Não faço ideia de que jogo seja.",
+      "A pasta só tinha arquivos de vídeo soltos, sem instalador, sem nome, sem nada.",
+      "Se alguém reconhecer, me avisa. Tô deixando registrado aqui pra não perder."
+    ],
+    comentarios: [
+      { nome: "Lucas", texto: "isso parece algum projeto abandonado" },
+      { nome: "Rafael", texto: "tenta explorar mais a cidade" },
+      { nome: "user_17", texto: "tem alguma coisa estranha naquele prédio" }
+    ]
+  },
+  {
+    id: 2,
+    titulo: "exploracao",
+    data: "13/03/2026",
+    video: "videos/exploracao 2.mp4",
+    texto: [
+      "Resolvi andar mais pelo cenário pra entender onde isso se passa. É tudo meio vazio.",
+      "Reparem que não tem menu inicial, nem placa de empresa, nem nada. O jogo só começa.",
+      "Por volta dos 0:30 dá pra ver uma porta que eu não consegui abrir."
+    ],
+    comentarios: [
+      { nome: "Amanda", texto: "olha o relógio no canto" },
+      { nome: "Marcos", texto: "volta naquele corredor antes de virar" },
+      { nome: "ju", texto: "esse silêncio é esquisito demais" }
+    ]
+  },
+  {
+    id: 3,
+    titulo: "um video rapido",
+    data: "14/03/2026",
+    video: "videos/um video rapido 3.mp4",
+    texto: [
+      "Vídeo curtinho só pra mostrar uma coisa: o personagem fica parado e a imagem treme um pouco sozinha.",
+      "Pode ser bug, pode ser proposital. Não sei.",
+      "Quem entende de jogo antigo, isso é normal?"
+    ],
+    comentarios: [
+      { nome: "Lucas", texto: "isso aí não é bug não" },
+      { nome: "user_17", texto: "abaixa o volume e ouve no final" },
+      { nome: "anon", texto: "já vi isso em outro lugar" }
+    ]
+  },
+  {
+    id: 4,
+    titulo: "portas",
+    data: "15/03/2026",
+    video: "videos/portas 4.mp4",
+    texto: [
+      "Voltei pra tentar abrir aquela porta do vídeo 2. Agora ela abre.",
+      "Tem várias portas iguais, uma atrás da outra. Algumas levam pro mesmo lugar.",
+      "Juro que ontem isso não estava aberto."
+    ],
+    comentarios: [
+      { nome: "Rafael", texto: "entra na terceira porta" },
+      { nome: "Amanda", texto: "talvez seja outra gravação e vc confundiu" },
+      { nome: "p.", texto: "não entra em todas" }
+    ]
+  },
+  {
+    id: 5,
+    titulo: "corredores",
+    data: "16/03/2026",
+    video: "videos/corredores 5.mp4",
+    texto: [
+      "Depois das portas tem corredores longos que parecem não acabar. Andei uns 5 minutos em linha reta.",
+      "Em certo ponto o corredor repete: mesmo cano no teto, mesma mancha na parede.",
+      "Comecei a anotar uns números que aparecem nas paredes."
+    ],
+    comentarios: [
+      { nome: "Marcos", texto: "esse corredor é o mesmo do vídeo 2 invertido" },
+      { nome: "fe", texto: "para de andar e olha pra trás" },
+      { nome: "user_17", texto: "que números são esses?" }
+    ]
+  },
+  {
+    id: 6,
+    titulo: "limbo",
+    data: "18/03/2026",
+    video: "videos/limbo 6.mp4",
+    texto: [
+      "No fim de um dos corredores aparece uma palavra na tela: LIMBO. Some rápido, dá pra ver num quadro só.",
+      "Depois disso abre uma área nova que não tava no mapa antes. Páginas numeradas, uma marcada em vermelho.",
+      "Vou continuar registrando aqui conforme eu descobrir mais."
+    ],
+    comentarios: [
+      { nome: "Lucas", texto: "limbo... igual no caderno?" },
+      { nome: "anon", texto: "quantas páginas exatamente?" },
+      { nome: "—", texto: "você não devia ter chegado até aqui" }
+    ]
+  }
+];
+
+/* ---------- helpers ---------- */
+function pegarPost(id) {
+  for (var i = 0; i < POSTS.length; i++) {
+    if (POSTS[i].id === id) return POSTS[i];
+  }
+  return null;
+}
+
+function escapar(txt) {
+  return String(txt)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+/* navega trocando o hash. nunca abre outro arquivo. */
+function irPara(rota) {
+  window.location.hash = rota ? ("#" + rota) : "#";
+  window.scrollTo(0, 0);
+}
+
+/* ---------- views ---------- */
+function viewInicio() {
+  var html = "";
+  html += '<div class="aviso">Esses vídeos foram encontrados em uma pasta antiga. Estou postando aqui para organizar tudo.</div>';
+  html += '<div class="intro">Os posts mais recentes ficam em cima. Clique em um deles para ver o vídeo e os comentários.</div>';
+  html += '<ul class="posts">';
+  for (var i = POSTS.length - 1; i >= 0; i--) {
+    var post = POSTS[i];
+    var num = ("0" + post.id).slice(-2);
+    html += '<li>';
+    html += '<span class="data">' + post.data + '</span>';
+    html += '<span class="num">[' + num + ']</span>';
+    html += '<a onclick="irPara(\'post=' + post.id + '\')">' + escapar(post.titulo) + '</a>';
+    html += '</li>';
+  }
+  html += '</ul><div class="clear"></div>';
+  document.getElementById("conteudo").innerHTML = html;
+  document.title = "ARQUIVO 314";
+}
+
+function viewSobre() {
+  var html = "";
+  html += '<div class="voltar">&laquo; <a onclick="irPara(\'\')">voltar para a lista</a></div>';
+  html += '<h2 class="titulo-post">sobre</h2>';
+  html += '<div class="data-post">esta página</div>';
+  html += '<div class="sobre texto">';
+  html += '<p>Criei esse site para organizar os vídeos que encontrei em um notebook antigo.</p>';
+  html += '<p>Não sei exatamente o que é esse jogo.</p>';
+  html += '<p>Vou atualizar conforme encontrar mais coisas.</p>';
+  html += '</div>';
+  document.getElementById("conteudo").innerHTML = html;
+  document.title = "sobre - ARQUIVO 314";
+}
+
+function viewPost(id) {
+  var post = pegarPost(id);
+  if (!post) { viewInicio(); return; }
+
+  var html = "";
+  html += '<div class="voltar">&laquo; <a onclick="irPara(\'\')">voltar para a lista</a></div>';
+  html += '<h2 class="titulo-post">' + escapar(post.titulo) + '</h2>';
+  html += '<div class="data-post">postado em ' + post.data + '</div>';
+
+  html += '<div class="texto">';
+  for (var i = 0; i < post.texto.length; i++) {
+    html += '<p>' + escapar(post.texto[i]) + '</p>';
+  }
+  html += '</div>';
+
+  html += '<div class="video-box">';
+  html += '<video controls preload="none">';
+  html += '<source src="' + escapar(post.video) + '" type="video/mp4">';
+  html += 'seu navegador não consegue exibir o vídeo, ou o arquivo não foi encontrado.';
+  html += '</video>';
+  html += '<div class="video-legenda">arquivo: ' + escapar(post.video) + '</div>';
+  html += '</div>';
+
+  html += '<div class="bloco-comentarios">';
+  html += '<h3>comentários</h3>';
+  html += '<div id="lista-comentarios"></div>';
+  html += '<div class="form-comentario">';
+  html += '<label for="campo-nome">nome:</label>';
+  html += '<input type="text" id="campo-nome" maxlength="40" autocomplete="off">';
+  html += '<label for="campo-texto">comentário:</label>';
+  html += '<textarea id="campo-texto" maxlength="500"></textarea>';
+  html += '<button type="button" onclick="enviarComentario(' + post.id + ')">enviar</button>';
+  html += '<div class="aviso-local">os comentários ficam salvos só neste navegador.</div>';
+  html += '</div>';
+  html += '</div>';
+
+  document.getElementById("conteudo").innerHTML = html;
+  document.title = "[" + ("0" + post.id).slice(-2) + "] " + post.titulo + " - ARQUIVO 314";
+
+  renderComentarios(post.id);
+}
+
+/* ---------- comentarios (localStorage) ---------- */
+function chaveComentarios(idPost) {
+  return "arquivo314_coment_post" + idPost;
+}
+
+function lerComentariosSalvos(idPost) {
+  try {
+    var bruto = localStorage.getItem(chaveComentarios(idPost));
+    if (!bruto) return [];
+    var arr = JSON.parse(bruto);
+    if (Object.prototype.toString.call(arr) === "[object Array]") return arr;
+    return [];
+  } catch (e) { return []; }
+}
+
+function renderComentarios(idPost) {
+  var post = pegarPost(idPost);
+  var area = document.getElementById("lista-comentarios");
+  if (!area) return;
+
+  var html = "";
+  for (var i = 0; i < post.comentarios.length; i++) {
+    var c = post.comentarios[i];
+    html += '<div class="comentario">';
+    html += '<span class="nome">' + escapar(c.nome) + '</span>';
+    html += '<div class="corpo">' + escapar(c.texto) + '</div>';
+    html += '</div>';
+  }
+
+  var salvos = lerComentariosSalvos(idPost);
+  for (var j = 0; j < salvos.length; j++) {
+    var s = salvos[j];
+    html += '<div class="comentario">';
+    if (s.quando) html += '<span class="quando">' + escapar(s.quando) + '</span>';
+    html += '<span class="nome">' + escapar(s.nome) + '</span>';
+    html += '<div class="corpo">' + escapar(s.texto) + '</div>';
+    html += '</div>';
+  }
+
+  area.innerHTML = html;
+}
+
+function enviarComentario(idPost) {
+  var campoNome = document.getElementById("campo-nome");
+  var campoTexto = document.getElementById("campo-texto");
+  var nome = campoNome.value.replace(/^\s+|\s+$/g, "");
+  var texto = campoTexto.value.replace(/^\s+|\s+$/g, "");
+  if (texto === "") return;
+  if (nome === "") nome = "anônimo";
+
+  var agora = new Date();
+  var dd = ("0" + agora.getDate()).slice(-2);
+  var mm = ("0" + (agora.getMonth() + 1)).slice(-2);
+  var aa = agora.getFullYear();
+
+  var lista = lerComentariosSalvos(idPost);
+  lista.push({ nome: nome, texto: texto, quando: dd + "/" + mm + "/" + aa });
+  try { localStorage.setItem(chaveComentarios(idPost), JSON.stringify(lista)); } catch (e) {}
+
+  campoNome.value = "";
+  campoTexto.value = "";
+  renderComentarios(idPost);
+}
+
+/* ---------- contador de visitas (falso) ---------- */
+function contador() {
+  var alvo = document.getElementById("contador");
+  if (!alvo) return;
+  var base = 1483;
+  var extra = 0;
+  try {
+    extra = parseInt(localStorage.getItem("arquivo314_visitas") || "0", 10);
+    if (isNaN(extra)) extra = 0;
+    extra = extra + 1;
+    localStorage.setItem("arquivo314_visitas", String(extra));
+  } catch (e) { extra = 0; }
+  alvo.textContent = base + extra;
+}
+
+/* ---------- roteador interno ---------- */
+function rotear() {
+  var hash = window.location.hash.replace(/^#/, "");
+  if (hash === "sobre") {
+    viewSobre();
+  } else if (hash.indexOf("post=") === 0) {
+    var id = parseInt(hash.substring(5), 10);
+    viewPost(id);
+  } else {
+    viewInicio();
+  }
+}
+
+window.onhashchange = rotear;
+window.onload = function () {
+  rotear();
+  contador();
+};
+</script>
+
+</body>
+</html>
