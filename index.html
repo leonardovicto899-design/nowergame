@@ -247,7 +247,6 @@ h2.titulo-post {
   <div id="conteudo"></div>
 
   <div id="rodape">
-    Visitantes: <span class="contador" id="contador">1483</span><br>
     Última atualização: 18/03/2026
   </div>
 
@@ -421,12 +420,6 @@ function viewPost(id) {
   html += '<h2 class="titulo-post">' + escapar(post.titulo) + '</h2>';
   html += '<div class="data-post">postado em ' + post.data + '</div>';
 
-  html += '<div class="texto">';
-  for (var i = 0; i < post.texto.length; i++) {
-    html += '<p>' + escapar(post.texto[i]) + '</p>';
-  }
-  html += '</div>';
-
   html += '<div class="video-box">';
   html += '<div class="video-wrap">';
   html += '<iframe src="https://www.youtube.com/embed/' + escapar(post.yt) + '" title="' + escapar(post.titulo) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
@@ -434,102 +427,8 @@ function viewPost(id) {
   html += '<div class="video-legenda">vídeo: youtu.be/' + escapar(post.yt) + '</div>';
   html += '</div>';
 
-  html += '<div class="bloco-comentarios">';
-  html += '<h3>comentários</h3>';
-  html += '<div id="lista-comentarios"></div>';
-  html += '<div class="form-comentario">';
-  html += '<label for="campo-nome">nome:</label>';
-  html += '<input type="text" id="campo-nome" maxlength="40" autocomplete="off">';
-  html += '<label for="campo-texto">comentário:</label>';
-  html += '<textarea id="campo-texto" maxlength="500"></textarea>';
-  html += '<button type="button" onclick="enviarComentario(' + post.id + ')">enviar</button>';
-  html += '<div class="aviso-local">os comentários ficam salvos só neste navegador.</div>';
-  html += '</div>';
-  html += '</div>';
-
   document.getElementById("conteudo").innerHTML = html;
   document.title = "[" + ("0" + post.id).slice(-2) + "] " + post.titulo + " - ARQUIVO 314";
-
-  renderComentarios(post.id);
-}
-
-/* ---------- comentarios (localStorage) ---------- */
-function chaveComentarios(idPost) {
-  return "arquivo314_coment_post" + idPost;
-}
-
-function lerComentariosSalvos(idPost) {
-  try {
-    var bruto = localStorage.getItem(chaveComentarios(idPost));
-    if (!bruto) return [];
-    var arr = JSON.parse(bruto);
-    if (Object.prototype.toString.call(arr) === "[object Array]") return arr;
-    return [];
-  } catch (e) { return []; }
-}
-
-function renderComentarios(idPost) {
-  var post = pegarPost(idPost);
-  var area = document.getElementById("lista-comentarios");
-  if (!area) return;
-
-  var html = "";
-  for (var i = 0; i < post.comentarios.length; i++) {
-    var c = post.comentarios[i];
-    html += '<div class="comentario">';
-    html += '<span class="nome">' + escapar(c.nome) + '</span>';
-    html += '<div class="corpo">' + escapar(c.texto) + '</div>';
-    html += '</div>';
-  }
-
-  var salvos = lerComentariosSalvos(idPost);
-  for (var j = 0; j < salvos.length; j++) {
-    var s = salvos[j];
-    html += '<div class="comentario">';
-    if (s.quando) html += '<span class="quando">' + escapar(s.quando) + '</span>';
-    html += '<span class="nome">' + escapar(s.nome) + '</span>';
-    html += '<div class="corpo">' + escapar(s.texto) + '</div>';
-    html += '</div>';
-  }
-
-  area.innerHTML = html;
-}
-
-function enviarComentario(idPost) {
-  var campoNome = document.getElementById("campo-nome");
-  var campoTexto = document.getElementById("campo-texto");
-  var nome = campoNome.value.replace(/^\s+|\s+$/g, "");
-  var texto = campoTexto.value.replace(/^\s+|\s+$/g, "");
-  if (texto === "") return;
-  if (nome === "") nome = "anônimo";
-
-  var agora = new Date();
-  var dd = ("0" + agora.getDate()).slice(-2);
-  var mm = ("0" + (agora.getMonth() + 1)).slice(-2);
-  var aa = agora.getFullYear();
-
-  var lista = lerComentariosSalvos(idPost);
-  lista.push({ nome: nome, texto: texto, quando: dd + "/" + mm + "/" + aa });
-  try { localStorage.setItem(chaveComentarios(idPost), JSON.stringify(lista)); } catch (e) {}
-
-  campoNome.value = "";
-  campoTexto.value = "";
-  renderComentarios(idPost);
-}
-
-/* ---------- contador de visitas (falso) ---------- */
-function contador() {
-  var alvo = document.getElementById("contador");
-  if (!alvo) return;
-  var base = 1483;
-  var extra = 0;
-  try {
-    extra = parseInt(localStorage.getItem("arquivo314_visitas") || "0", 10);
-    if (isNaN(extra)) extra = 0;
-    extra = extra + 1;
-    localStorage.setItem("arquivo314_visitas", String(extra));
-  } catch (e) { extra = 0; }
-  alvo.textContent = base + extra;
 }
 
 /* ---------- roteador interno ---------- */
@@ -548,7 +447,6 @@ function rotear() {
 window.onhashchange = rotear;
 window.onload = function () {
   rotear();
-  contador();
 };
 </script>
 
