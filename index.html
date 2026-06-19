@@ -122,10 +122,20 @@ h2.titulo-post {
   border: 1px solid #222;
 }
 
-.video-box video {
-  display: block;
+.video-wrap {
+  position: relative;
   width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
   background-color: #000;
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .video-legenda {
@@ -252,7 +262,7 @@ var POSTS = [
     id: 1,
     titulo: "alguem conhece esse jogo?",
     data: "12/03/2026",
-    video: "videos/alguem conhece esse jogo 1.mp4",
+    yt: "kicz-xesrA8",
     texto: [
       "Encontrei esse vídeo numa pasta antiga dentro do notebook. Não faço ideia de que jogo seja.",
       "A pasta só tinha arquivos de vídeo soltos, sem instalador, sem nome, sem nada.",
@@ -268,7 +278,7 @@ var POSTS = [
     id: 2,
     titulo: "exploracao",
     data: "13/03/2026",
-    video: "videos/exploracao 2.mp4",
+    yt: "QNsYm8HhCwg",
     texto: [
       "Resolvi andar mais pelo cenário pra entender onde isso se passa. É tudo meio vazio.",
       "Reparem que não tem menu inicial, nem placa de empresa, nem nada. O jogo só começa.",
@@ -284,7 +294,7 @@ var POSTS = [
     id: 3,
     titulo: "um video rapido",
     data: "14/03/2026",
-    video: "videos/um video rapido 3.mp4",
+    yt: "n-TY9Abpixw",
     texto: [
       "Vídeo curtinho só pra mostrar uma coisa: o personagem fica parado e a imagem treme um pouco sozinha.",
       "Pode ser bug, pode ser proposital. Não sei.",
@@ -300,7 +310,7 @@ var POSTS = [
     id: 4,
     titulo: "portas",
     data: "15/03/2026",
-    video: "videos/portas 4.mp4",
+    yt: "kM8biwbF-vo",
     texto: [
       "Voltei pra tentar abrir aquela porta do vídeo 2. Agora ela abre.",
       "Tem várias portas iguais, uma atrás da outra. Algumas levam pro mesmo lugar.",
@@ -316,7 +326,7 @@ var POSTS = [
     id: 5,
     titulo: "corredores",
     data: "16/03/2026",
-    video: "videos/corredores 5.mp4",
+    yt: "2n5xqXyrmSk",
     texto: [
       "Depois das portas tem corredores longos que parecem não acabar. Andei uns 5 minutos em linha reta.",
       "Em certo ponto o corredor repete: mesmo cano no teto, mesma mancha na parede.",
@@ -332,7 +342,7 @@ var POSTS = [
     id: 6,
     titulo: "limbo",
     data: "18/03/2026",
-    video: "videos/limbo 6.mp4",
+    yt: "cl6UngDGKCU",
     texto: [
       "No fim de um dos corredores aparece uma palavra na tela: LIMBO. Some rápido, dá pra ver num quadro só.",
       "Depois disso abre uma área nova que não tava no mapa antes. Páginas numeradas, uma marcada em vermelho.",
@@ -418,11 +428,10 @@ function viewPost(id) {
   html += '</div>';
 
   html += '<div class="video-box">';
-  html += '<video controls preload="none">';
-  html += '<source src="' + escapar(post.video) + '" type="video/mp4">';
-  html += 'seu navegador não consegue exibir o vídeo, ou o arquivo não foi encontrado.';
-  html += '</video>';
-  html += '<div class="video-legenda">arquivo: ' + escapar(post.video) + '</div>';
+  html += '<div class="video-wrap">';
+  html += '<iframe src="https://www.youtube.com/embed/' + escapar(post.yt) + '" title="' + escapar(post.titulo) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+  html += '</div>';
+  html += '<div class="video-legenda">vídeo: youtu.be/' + escapar(post.yt) + '</div>';
   html += '</div>';
 
   html += '<div class="bloco-comentarios">';
